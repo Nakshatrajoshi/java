@@ -1,31 +1,21 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+public class solution {
+    public String longestCSommonPrefixS(String[] strs) {
+        String output = strs[0];
 
-public class Solution {
+        for (int i = 1; i <strs.length; i++) {
+            output = Compare(output,strs[i]);
+            
+        }
+        return output;
 
+    }
+ public String Compare(String s1 ,String s2){
+     int length = Math.min(s1.length(), s2.length());
+     int i = 0;
+     for ( ; i<length ; i++){
+         if(s1.charAt(i) != s2.charAt(i)) break;
 
-
-    private static final Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        
-     System.out.print("enter the value ");
-     int N = scanner .nextInt();
-
-     if (N%2 == 1 || N>=6 && N<=20 )
-     {
-           System.out.print("Weird");
      }
-     else {
-           System.out.print("Not Weird");
-     }
-          
-
-}
-    
+     return s1.substring(0,i);
+ }
 }
